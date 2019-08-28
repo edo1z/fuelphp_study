@@ -29,7 +29,11 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('welcome/index'));
+	    $view = View::forge('layouts/default');
+	    $view->header = View::forge('components/header');
+        $view->content = View::forge('pages/welcome/index');
+        $view->footer = View::forge('components/footer');
+		return Response::forge($view);
 	}
 
 	/**
@@ -41,7 +45,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_hello()
 	{
-		return Response::forge(Presenter::forge('welcome/hello'));
+		return Response::forge(Presenter::forge('pages/welcome/hello'));
 	}
 
 	/**

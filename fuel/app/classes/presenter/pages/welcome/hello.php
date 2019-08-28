@@ -16,7 +16,7 @@
  * @package  app
  * @extends  Presenter
  */
-class Presenter_Welcome_Hello extends Presenter
+class Presenter_Pages_Welcome_Hello extends Presenter
 {
 	/**
 	 * Prepare the view data, keeping this in here helps clean up
