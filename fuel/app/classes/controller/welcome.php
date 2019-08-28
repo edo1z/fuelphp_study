@@ -10,6 +10,8 @@
  * @link       https://fuelphp.com
  */
 
+use Fuel\Core\Controller_Template;
+
 /**
  * The Welcome Controller.
  *
@@ -19,8 +21,17 @@
  * @package  app
  * @extends  Controller
  */
-class Controller_Welcome extends Controller
+class Controller_Welcome extends Controller_Template
 {
+    public $template = 'layouts/default';
+
+    public function before() {
+        parent::before();
+        $this->template->title = 'FUELPHP STUDY';
+        $this->template->header = View::forge('components/header');
+        $this->template->footer = View::forge('components/footer');
+    }
+
 	/**
 	 * The basic welcome message
 	 *
@@ -29,11 +40,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-	    $view = View::forge('layouts/default');
-	    $view->header = View::forge('components/header');
-        $view->content = View::forge('pages/welcome/index');
-        $view->footer = View::forge('components/footer');
-		return Response::forge($view);
+        $this->template->content = View::forge('pages/welcome/index');
 	}
 
 	/**
@@ -45,7 +52,8 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_hello()
 	{
-		return Response::forge(Presenter::forge('pages/welcome/hello'));
+        $this->template->title = 'HELLO';
+	    $this->template->content = Presenter::forge('pages/welcome/hello');
 	}
 
 	/**
