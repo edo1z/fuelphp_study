@@ -448,6 +448,11 @@ return array(
 	 *  Always load
 	 * -------------------------------------------------------------------------
 	 */
+	'always_load' => [
+	    'packages' => [
+	        'orm', 'auth'
+        ]
+    ]
 
 	// 'always_load' => array(
 		/**

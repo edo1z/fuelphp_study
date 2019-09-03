@@ -21,12 +21,13 @@
 
 return array(
 	'default' => array(
+	    'type' => 'mysqli',
 		'connection' => array(
-		    'hostname' => 'fuel_db',
-			'port' => '3309',
+			'hostname' => 'db',
 			'database' => 'study',
 			'username' => 'root',
 			'password' => 'password',
 		),
+        'charset' => 'utf8'
 	),
 );
