@@ -21,5 +21,8 @@
  */
 
 return array(
-
+    'default' => array(
+        'type' => 'mysqli',
+        'charset' => 'utf8',
+    ),
 );
